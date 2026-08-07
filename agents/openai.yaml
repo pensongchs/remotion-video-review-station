@@ -1,0 +1,4 @@
+interface:
+  display_name: "Remotion 视频审片台"
+  short_description: "按时间点和画面选框批注 Remotion 视频并汇总重渲染意见"
+  default_prompt: "使用 $remotion-video-review-station 接入刚渲染的视频并打开无缓存审片流程。"

@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+dist/
+.playwright-cli/
+*.log
+*.mp4
+*.mov
+*.m4v
+*.webm
+assets/review-station/public/review-sessions/current.json
