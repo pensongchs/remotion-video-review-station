@@ -152,7 +152,7 @@ function buildSubmissionPrompt({
 }
 
 function App() {
-  const [projectTitle, setProjectTitle] = useState('视频审片预览台');
+  const [projectTitle, setProjectTitle] = useState('小滕的审片工具台');
   const [videos, setVideos] = useState<ReviewVideo[]>([]);
   const [activeVideoId, setActiveVideoId] = useState('');
   const [isPlaying, setIsPlaying] = useState(false);
@@ -183,7 +183,7 @@ function App() {
       .then(async (manifest: ReviewManifest | null) => {
         const clearedAt = window.localStorage.getItem(clearedSessionKey);
         if (manifest?.createdAt && clearedAt && manifest.createdAt <= clearedAt) {
-          setProjectTitle('视频审片预览台');
+          setProjectTitle('小滕的审片工具台');
           setVideos([]);
           setActiveVideoId('');
           return;
@@ -207,7 +207,7 @@ function App() {
           )
         ).filter((video): video is ReviewVideo => Boolean(video));
 
-        setProjectTitle(manifest?.title || existingVideos[0]?.title || '视频审片预览台');
+        setProjectTitle(manifest?.title || existingVideos[0]?.title || '小滕的审片工具台');
         setVideos(existingVideos);
         setActiveVideoId(existingVideos[0]?.id || '');
         setCurrentTime(0);
@@ -389,7 +389,7 @@ function App() {
     setCurrentTime(0);
     setVideos([]);
     setActiveVideoId('');
-    setProjectTitle('视频审片预览台');
+    setProjectTitle('小滕的审片工具台');
     setAnnotations([]);
     setDraftShape(null);
     setPendingAnnotation(null);
@@ -432,7 +432,7 @@ function App() {
       <header className="topbar compact">
         <div>
           <span className="product-kicker">SHOT REVIEW DESK</span>
-          <h1>分镜视频预览台</h1>
+          <h1>小滕的审片工具台</h1>
         </div>
         <div className="stage-meta">
           <span>{projectTitle}</span>
