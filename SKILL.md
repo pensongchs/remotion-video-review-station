@@ -5,6 +5,8 @@ description: 搭建和运行“小滕的审片工具台”，通过源文件路�
 
 # 小滕的审片工具台
 
+![小滕的审片工具台效果示意](assets/xiaoteng-review-station-preview.jpg)
+
 ## 核心原则
 
 - 只把已渲染视频作为审片输入，不把示例动效或文字卡片作为入口。
