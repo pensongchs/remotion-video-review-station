@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { basename, extname, resolve } from 'node:path';
+import {toViteFsUrl} from './path-utils.mjs';
 
 const args = process.argv.slice(2);
 const titleIndex = args.indexOf('--title');
@@ -41,7 +42,7 @@ const videos = inputPaths.map((inputPath, index) => {
     id: `video-${index + 1}`,
     title: sourceTitle,
     sourcePath,
-    videoUrl: encodeURI(`/@fs${sourcePath}`),
+    videoUrl: toViteFsUrl(sourcePath),
     scenes: [
       {
         id: 'full',

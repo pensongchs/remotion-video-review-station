@@ -9,7 +9,8 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1 --port 4328",
     "session": "node scripts/create-review-session.mjs",
-    "load": "node scripts/create-review-session.mjs"
+    "load": "node scripts/create-review-session.mjs",
+    "verify": "node scripts/verify-session.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^6.0.3",
@@ -21,5 +22,8 @@
   "devDependencies": {
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
   }
 }

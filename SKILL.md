@@ -31,23 +31,25 @@ npm install
 npm run build
 ```
 
+Node.js 需要 `20.19` 或更高兼容版本。macOS 和 Windows 都使用同一套 Node 脚本；全局 npm 缓存无权限时使用项目自己的缓存目录，不修改用户主目录权限。
+
 不要把 `node_modules`、`dist`、视频、截图、浏览器日志或会话缓存提交到项目仓库。
 
 ## 接入视频
 
 先确认每个源文件存在，再从审片台目录运行：
 
-```bash
-npm run load -- /absolute/path/video.mp4 "视频标题"
+```text
+npm run load -- "<当前电脑的视频完整路径>" "视频标题"
 ```
 
 多条视频使用：
 
-```bash
-npm run load -- /absolute/path/01.mp4 /absolute/path/02.mp4 --title "本期视频"
+```text
+npm run load -- "<视频一完整路径>" "<视频二完整路径>" --title "本期视频"
 ```
 
-加载脚本只能更新 `public/review-sessions/current.json`。清单中的 `videoUrl` 使用 Vite `/@fs` 源文件访问，`sourcePath` 必须保留绝对路径，供后续定位 Remotion 项目。
+加载脚本只能更新 `public/review-sessions/current.json`。清单中的 `videoUrl` 会根据 macOS 或 Windows 路径自动转换为 Vite `/@fs` 源文件地址，`sourcePath` 保留当前电脑的绝对路径，供后续定位 Remotion 项目。
 
 运行并打开固定地址：
 
@@ -89,11 +91,10 @@ npm run build
 
 接入实际视频后检查：
 
-```bash
-cat public/review-sessions/current.json
-find public/review-sessions -type f \( -iname '*.mp4' -o -iname '*.mov' -o -iname '*.m4v' \) -print
+```text
+npm run verify
 ```
 
-确认清单含正确 `sourcePath`，第二条命令无输出。再在浏览器验证视频可播放、选框起点准确、意见可汇总、空格播放暂停和清空列表。
+确认清单含当前平台的正确 `sourcePath` 和 `/@fs` 地址，并且会话目录没有视频副本。再在浏览器验证视频可播放、选框起点准确、意见可汇总、空格播放暂停和清空列表。
 
 模板源码位于 `assets/review-station/`。只在建立新审片台或修复兼容实现时读取和复制它。
